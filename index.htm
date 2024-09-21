@@ -255,7 +255,7 @@
 		document.getElementById("Titel").innerText=Name.replace("_"," #");
 		document.getElementById("Feld").style.backgroundImage='url("crosswords/'+Name+'.png")';
 		txt=loadFile("crosswords/"+Name+".txt");
-		lsg=txt.substring(16*16).replace(/[\n\r\t]/g,"");
+		lsg=txt.substring(16*16).replace(/[\n\r\t]/g,"").toLowerCase();
 		lsglist=[];
 		for (var i=0;i<lsg.length;i+=2){
 			lsglist.push(lsg[i]+lsg[i+1]);
