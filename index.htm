@@ -262,6 +262,7 @@
 		}
 		for (var y=0;y<16;y++){
 			document.getElementById("Lsg"+y).value="";
+			if (lsglist.length-1<y){document.getElementById("Lsg"+y).placeholder=y+1;}else{document.getElementById("Lsg"+y).placeholder="";}
 			for (var x=0;x<16;x++){
 				document.getElementById(x.toString(16)+y.toString(16)).value="";
 			}
