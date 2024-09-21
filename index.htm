@@ -234,7 +234,7 @@
 	function loadcrossword(Name){
 		document.getElementById("Titel").innerText=Name.replace("_"," #");
 		document.getElementById("Feld").style.backgroundImage='url("crosswords/'+Name+'.png")';
-		txt=loadFile("crosswords/Rätsel_004.txt");
+		txt=loadFile("crosswords/"+Name+".txt");
 		lsg=txt.substring(16*16).replace(/[\n\r\t]/g,"");
 		lsglist=[];
 		for (var i=0;i<lsg.length;i+=2){
