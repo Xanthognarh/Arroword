@@ -89,6 +89,9 @@
 		.button:hover{
 			background-color: #025536;
 		}
+		button a{
+			all: unset;
+		}
 		#Zielwort{
 			position: absolute;
 			left: 7%;
@@ -98,7 +101,7 @@
 			background-color:red;
 		}
 		.error{
-			color: #FF0000;
+			color: #FF0000 !important;
 		}
 		
 	</style>
@@ -129,10 +132,10 @@
 					Eingaben
 					überprüfen
 				</button>
-				<button class="button">
+				<button class="button"><a href="crosswords/Rätsel_004.png" download>
 					Rätsel
 					herunterladen
-				</button>
+				</a></button>
 			</div>
 			<div id="Zielwort"></div>
 			<div id="Titel">Rätsel #000</div>
@@ -217,6 +220,9 @@
 				i++;
 			}
 		}
+	}
+	function download(){
+		
 	}
 	</script>
 </html>
