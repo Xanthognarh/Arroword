@@ -66,6 +66,18 @@
 		#Feld input:focus::selection{
 			background: transparent;
 		}
+		#Zielwort input{
+			width: 100%;
+			height: 100%;
+			font-size: 3vmin;
+			text-align:center;
+			color: #ffff9a;
+			background-color: #f77021;
+			border:0;
+			caret-color: #f77021;
+			caret-shape: underscore;
+			pointer-events:none;
+		}
 		#Bedienung{
 			position: absolute;
 			right: 0;
@@ -146,7 +158,11 @@
 				<button class="button nav" onClick="load('previous');">Vorheriges Rätsel</button>
 				<button class="button nav" onclick="load('next');">Nächstes Rätsel</button>
 			</div>
-			<div id="Zielwort"></div>
+			<div id="Zielwort">
+				<table>
+					<tr><td><input maxlength=1 id="Lsg0"></td><td><input maxlength=1 id="Lsg1"></td><td><input maxlength=1 id="Lsg2"></td><td><input maxlength=1 id="Lsg3"></td><td><input maxlength=1 id="Lsg4"></td><td><input maxlength=1 id="Lsg5"></td><td><input maxlength=1 id="Lsg6"></td><td><input maxlength=1 id="Lsg7"></td><td><input maxlength=1 id="Lsg8"></td><td><input maxlength=1 id="Lsg9"></td><td><input maxlength=1 id="Lsg10"></td><td><input maxlength=1 id="Lsg11"></td><td><input maxlength=1 id="Lsg12"></td><td><input maxlength=1 id="Lsg13"></td><td><input maxlength=1 id="Lsg14"></td><td><input maxlength=1 id="Lsg15"></td></tr>
+				</table>
+			</div>
 			<div id="Titel">Rätsel #000</div>
 		</div>
 	</body>
@@ -183,6 +199,10 @@
 			Feld=document.activeElement;
 			Feld.classList.remove("error");
 			Feld.value=Text;
+			lsgpos=lsglist.indexOf(Feld.id);
+			if (lsgpos!=-1){
+				document.getElementById("Lsg"+lsgpos).value=Text;
+			}
 		}
 		function key(event){
 			if (buchstaben.has(event.key.toLowerCase())){
@@ -241,6 +261,7 @@
 			lsglist.push(lsg[i]+lsg[i+1]);
 		}
 		for (var y=0;y<16;y++){
+			document.getElementById("Lsg"+y).value="";
 			for (var x=0;x<16;x++){
 				document.getElementById(x.toString(16)+y.toString(16)).value="";
 			}
