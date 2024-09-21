@@ -1,0 +1,201 @@
+<html>
+	<header>
+		<title>Schwedenrätsel</title>
+		<meta encoding="utf-8"></meta>
+	</header>
+	<style>
+		body{
+			background-color: #5a6969;
+		}
+		#Alles{
+			position: absolute;
+			top: 0px;
+			left: calc((100% - 100vmin)/2);
+			height: 100vmin;
+			width: 100vmin;
+			background-color: blue;			
+		}
+		#Titel{
+			position: absolute;
+			left: 0px;
+			top: 6.5%;
+			width: 5%;
+			height: 80%;
+			writing-mode: vertical-lr;
+			transform: rotate(180deg);
+			background-color: lightblue;
+			font-size: 5vmin;
+			text-align: center;
+		}
+		#Feld{
+			position: absolute;
+			left: 7%;
+			top: 6.5%;
+			width: 80%;
+			height: 80%;
+			background-image: url("Rätsel_004.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-color: #ffc740;
+		}
+		#Feld table{
+			width: 100%;
+			height: 100%;
+		}
+		#Feld td{
+			width:6.25%;
+			height:6.25%;
+			padding:0;
+		}
+		#Feld input{
+			width: 100%;
+			height: 100%;
+			font-size: 3vmin;
+			text-align:center;
+			color: #ffff9a;
+			background-color: rgba(0,0,0,0);
+			border:0;
+			caret-color: #000000;
+			caret-shape: underscore;
+		}
+		#Feld input:focus{
+			background-color: rgba(0,0,0,0.1);
+			outline: none !important;
+			border: 0.3vmin solid #ff451a;
+		}
+		#Feld input:focus::selection{
+			background: transparent;
+		}
+		#Bedienung{
+			position: absolute;
+			right: 0;
+			top: 6.5%;
+			width: 11%;
+			height: 80%;
+			background-color: lightgrey;
+		}
+		button{
+			width:100%;
+			background-color: #04AA6D;
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		.button:hover{
+			background-color: #025536;
+		}
+		#Zielwort{
+			position: absolute;
+			left: 7%;
+			bottom: 6.5%;
+			width: 80%;
+			height: 5%;
+			background-color:red;
+		}
+		
+	</style>
+	<body>
+		<div id="Alles">					
+			<div id="Feld">
+				<table>
+					<tr><td><input maxlength=1 id="00"></td><td><input maxlength=1 id="10"></td><td><input maxlength=1 id="20"></td><td><input maxlength=1 id="30"></td><td><input maxlength=1 id="40"></td><td><input maxlength=1 id="50"></td><td><input maxlength=1 id="60"></td><td><input maxlength=1 id="70"></td><td><input maxlength=1 id="80"></td><td><input maxlength=1 id="90"></td><td><input maxlength=1 id="a0"></td><td><input maxlength=1 id="b0"></td><td><input maxlength=1 id="c0"></td><td><input maxlength=1 id="d0"></td><td><input maxlength=1 id="e0"></td><td><input maxlength=1 id="f0"></td></tr>
+					<tr><td><input maxlength=1 id="01"></td><td><input maxlength=1 id="11"></td><td><input maxlength=1 id="21"></td><td><input maxlength=1 id="31"></td><td><input maxlength=1 id="41"></td><td><input maxlength=1 id="51"></td><td><input maxlength=1 id="61"></td><td><input maxlength=1 id="71"></td><td><input maxlength=1 id="81"></td><td><input maxlength=1 id="91"></td><td><input maxlength=1 id="a1"></td><td><input maxlength=1 id="b1"></td><td><input maxlength=1 id="c1"></td><td><input maxlength=1 id="d1"></td><td><input maxlength=1 id="e1"></td><td><input maxlength=1 id="f1"></td></tr>
+					<tr><td><input maxlength=1 id="02"></td><td><input maxlength=1 id="12"></td><td><input maxlength=1 id="22"></td><td><input maxlength=1 id="32"></td><td><input maxlength=1 id="42"></td><td><input maxlength=1 id="52"></td><td><input maxlength=1 id="62"></td><td><input maxlength=1 id="72"></td><td><input maxlength=1 id="82"></td><td><input maxlength=1 id="92"></td><td><input maxlength=1 id="a2"></td><td><input maxlength=1 id="b2"></td><td><input maxlength=1 id="c2"></td><td><input maxlength=1 id="d2"></td><td><input maxlength=1 id="e2"></td><td><input maxlength=1 id="f2"></td></tr>
+					<tr><td><input maxlength=1 id="03"></td><td><input maxlength=1 id="13"></td><td><input maxlength=1 id="23"></td><td><input maxlength=1 id="33"></td><td><input maxlength=1 id="43"></td><td><input maxlength=1 id="53"></td><td><input maxlength=1 id="63"></td><td><input maxlength=1 id="73"></td><td><input maxlength=1 id="83"></td><td><input maxlength=1 id="93"></td><td><input maxlength=1 id="a3"></td><td><input maxlength=1 id="b3"></td><td><input maxlength=1 id="c3"></td><td><input maxlength=1 id="d3"></td><td><input maxlength=1 id="e3"></td><td><input maxlength=1 id="f3"></td></tr>
+					<tr><td><input maxlength=1 id="04"></td><td><input maxlength=1 id="14"></td><td><input maxlength=1 id="24"></td><td><input maxlength=1 id="34"></td><td><input maxlength=1 id="44"></td><td><input maxlength=1 id="54"></td><td><input maxlength=1 id="64"></td><td><input maxlength=1 id="74"></td><td><input maxlength=1 id="84"></td><td><input maxlength=1 id="94"></td><td><input maxlength=1 id="a4"></td><td><input maxlength=1 id="b4"></td><td><input maxlength=1 id="c4"></td><td><input maxlength=1 id="d4"></td><td><input maxlength=1 id="e4"></td><td><input maxlength=1 id="f4"></td></tr>
+					<tr><td><input maxlength=1 id="05"></td><td><input maxlength=1 id="15"></td><td><input maxlength=1 id="25"></td><td><input maxlength=1 id="35"></td><td><input maxlength=1 id="45"></td><td><input maxlength=1 id="55"></td><td><input maxlength=1 id="65"></td><td><input maxlength=1 id="75"></td><td><input maxlength=1 id="85"></td><td><input maxlength=1 id="95"></td><td><input maxlength=1 id="a5"></td><td><input maxlength=1 id="b5"></td><td><input maxlength=1 id="c5"></td><td><input maxlength=1 id="d5"></td><td><input maxlength=1 id="e5"></td><td><input maxlength=1 id="f5"></td></tr>
+					<tr><td><input maxlength=1 id="06"></td><td><input maxlength=1 id="16"></td><td><input maxlength=1 id="26"></td><td><input maxlength=1 id="36"></td><td><input maxlength=1 id="46"></td><td><input maxlength=1 id="56"></td><td><input maxlength=1 id="66"></td><td><input maxlength=1 id="76"></td><td><input maxlength=1 id="86"></td><td><input maxlength=1 id="96"></td><td><input maxlength=1 id="a6"></td><td><input maxlength=1 id="b6"></td><td><input maxlength=1 id="c6"></td><td><input maxlength=1 id="d6"></td><td><input maxlength=1 id="e6"></td><td><input maxlength=1 id="f6"></td></tr>
+					<tr><td><input maxlength=1 id="07"></td><td><input maxlength=1 id="17"></td><td><input maxlength=1 id="27"></td><td><input maxlength=1 id="37"></td><td><input maxlength=1 id="47"></td><td><input maxlength=1 id="57"></td><td><input maxlength=1 id="67"></td><td><input maxlength=1 id="77"></td><td><input maxlength=1 id="87"></td><td><input maxlength=1 id="97"></td><td><input maxlength=1 id="a7"></td><td><input maxlength=1 id="b7"></td><td><input maxlength=1 id="c7"></td><td><input maxlength=1 id="d7"></td><td><input maxlength=1 id="e7"></td><td><input maxlength=1 id="f7"></td></tr>
+					<tr><td><input maxlength=1 id="08"></td><td><input maxlength=1 id="18"></td><td><input maxlength=1 id="28"></td><td><input maxlength=1 id="38"></td><td><input maxlength=1 id="48"></td><td><input maxlength=1 id="58"></td><td><input maxlength=1 id="68"></td><td><input maxlength=1 id="78"></td><td><input maxlength=1 id="88"></td><td><input maxlength=1 id="98"></td><td><input maxlength=1 id="a8"></td><td><input maxlength=1 id="b8"></td><td><input maxlength=1 id="c8"></td><td><input maxlength=1 id="d8"></td><td><input maxlength=1 id="e8"></td><td><input maxlength=1 id="f8"></td></tr>
+					<tr><td><input maxlength=1 id="09"></td><td><input maxlength=1 id="19"></td><td><input maxlength=1 id="29"></td><td><input maxlength=1 id="39"></td><td><input maxlength=1 id="49"></td><td><input maxlength=1 id="59"></td><td><input maxlength=1 id="69"></td><td><input maxlength=1 id="79"></td><td><input maxlength=1 id="89"></td><td><input maxlength=1 id="99"></td><td><input maxlength=1 id="a9"></td><td><input maxlength=1 id="b9"></td><td><input maxlength=1 id="c9"></td><td><input maxlength=1 id="d9"></td><td><input maxlength=1 id="e9"></td><td><input maxlength=1 id="f9"></td></tr>
+					<tr><td><input maxlength=1 id="0a"></td><td><input maxlength=1 id="1a"></td><td><input maxlength=1 id="2a"></td><td><input maxlength=1 id="3a"></td><td><input maxlength=1 id="4a"></td><td><input maxlength=1 id="5a"></td><td><input maxlength=1 id="6a"></td><td><input maxlength=1 id="7a"></td><td><input maxlength=1 id="8a"></td><td><input maxlength=1 id="9a"></td><td><input maxlength=1 id="aa"></td><td><input maxlength=1 id="ba"></td><td><input maxlength=1 id="ca"></td><td><input maxlength=1 id="da"></td><td><input maxlength=1 id="ea"></td><td><input maxlength=1 id="fa"></td></tr>
+					<tr><td><input maxlength=1 id="0b"></td><td><input maxlength=1 id="1b"></td><td><input maxlength=1 id="2b"></td><td><input maxlength=1 id="3b"></td><td><input maxlength=1 id="4b"></td><td><input maxlength=1 id="5b"></td><td><input maxlength=1 id="6b"></td><td><input maxlength=1 id="7b"></td><td><input maxlength=1 id="8b"></td><td><input maxlength=1 id="9b"></td><td><input maxlength=1 id="ab"></td><td><input maxlength=1 id="bb"></td><td><input maxlength=1 id="cb"></td><td><input maxlength=1 id="db"></td><td><input maxlength=1 id="eb"></td><td><input maxlength=1 id="fb"></td></tr>
+					<tr><td><input maxlength=1 id="0c"></td><td><input maxlength=1 id="1c"></td><td><input maxlength=1 id="2c"></td><td><input maxlength=1 id="3c"></td><td><input maxlength=1 id="4c"></td><td><input maxlength=1 id="5c"></td><td><input maxlength=1 id="6c"></td><td><input maxlength=1 id="7c"></td><td><input maxlength=1 id="8c"></td><td><input maxlength=1 id="9c"></td><td><input maxlength=1 id="ac"></td><td><input maxlength=1 id="bc"></td><td><input maxlength=1 id="cc"></td><td><input maxlength=1 id="dc"></td><td><input maxlength=1 id="ec"></td><td><input maxlength=1 id="fc"></td></tr>
+					<tr><td><input maxlength=1 id="0d"></td><td><input maxlength=1 id="1d"></td><td><input maxlength=1 id="2d"></td><td><input maxlength=1 id="3d"></td><td><input maxlength=1 id="4d"></td><td><input maxlength=1 id="5d"></td><td><input maxlength=1 id="6d"></td><td><input maxlength=1 id="7d"></td><td><input maxlength=1 id="8d"></td><td><input maxlength=1 id="9d"></td><td><input maxlength=1 id="ad"></td><td><input maxlength=1 id="bd"></td><td><input maxlength=1 id="cd"></td><td><input maxlength=1 id="dd"></td><td><input maxlength=1 id="ed"></td><td><input maxlength=1 id="fd"></td></tr>
+					<tr><td><input maxlength=1 id="0e"></td><td><input maxlength=1 id="1e"></td><td><input maxlength=1 id="2e"></td><td><input maxlength=1 id="3e"></td><td><input maxlength=1 id="4e"></td><td><input maxlength=1 id="5e"></td><td><input maxlength=1 id="6e"></td><td><input maxlength=1 id="7e"></td><td><input maxlength=1 id="8e"></td><td><input maxlength=1 id="9e"></td><td><input maxlength=1 id="ae"></td><td><input maxlength=1 id="be"></td><td><input maxlength=1 id="ce"></td><td><input maxlength=1 id="de"></td><td><input maxlength=1 id="ee"></td><td><input maxlength=1 id="fe"></td></tr>
+					<tr><td><input maxlength=1 id="0f"></td><td><input maxlength=1 id="1f"></td><td><input maxlength=1 id="2f"></td><td><input maxlength=1 id="3f"></td><td><input maxlength=1 id="4f"></td><td><input maxlength=1 id="5f"></td><td><input maxlength=1 id="6f"></td><td><input maxlength=1 id="7f"></td><td><input maxlength=1 id="8f"></td><td><input maxlength=1 id="9f"></td><td><input maxlength=1 id="af"></td><td><input maxlength=1 id="bf"></td><td><input maxlength=1 id="cf"></td><td><input maxlength=1 id="df"></td><td><input maxlength=1 id="ef"></td><td><input maxlength=1 id="ff"></td></tr>
+				</table>
+			</div>
+			<div id="Bedienung">
+				<button class="button">
+					Eingaben
+					überprüfen
+				</button>
+				<button class="button">
+					Rätsel
+					herunterladen
+				</button>
+			</div>
+			<div id="Zielwort"></div>
+			<div id="Titel">Rätsel #000</div>
+		</div>
+	</body>
+	<script>
+		document.getElementById("Feld").addEventListener("keyup",key);
+		const buchstaben=new Set(["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]);
+		Richtung=0;//0: Links nach rechts; 1: Oben nach unten; 2: Rechts nach links; 3: Unten nach oben
+		function move(Hauptrichtung,inv=false){
+			Feld=document.activeElement;
+			x=Number("0x"+Feld.id[0]);
+			y=Number("0x"+Feld.id[1]);
+			if (inv){Hauptrichtung=(Hauptrichtung>1)?Hauptrichtung-2:Hauptrichtung+2}
+			switch(Hauptrichtung){
+				case 0:
+					if (x<15){x++}else{x=0}
+					break;
+				case 1:
+					if (y<15){y++}else{y=0}
+					break;
+				case 2:
+					if (x>0){x--}else{x=15}
+					break;
+				case 3:
+					if (y>0){y--}else{y=15}
+					break;
+				default:
+					x=0;y=0;
+			}
+			document.getElementById(x.toString(16)+y.toString(16)).focus();
+		}
+		function key(event){
+			Feld=document.activeElement;
+			x=Number("0x"+Feld.id[0]);
+			y=Number("0x"+Feld.id[1]);
+			console.log(event.code+" für Feld "+Feld.id+" ("+x+"|"+y+")");
+			//console.log(event);
+			if (buchstaben.has(event.key.toLowerCase())){
+				c=event.key.toUpperCase();
+				Feld.value=c;
+				move(Richtung);
+			} else if (event.key=="ArrowDown"){
+				move(1);
+			} else if (event.key=="ArrowUp"){
+				move(3);
+			} else if (event.key=="ArrowLeft"){
+				move(2);
+			} else if (event.key=="ArrowRight"){
+				move(0);
+			}else if (event.key=="Backspace"){
+				Feld.value="";
+				move(Richtung,true);
+			}
+			
+		}
+	function loadFile(filePath){
+		var result = null;
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.open("GET", filePath, false);
+		xmlhttp.send();
+		if (xmlhttp.status==200) {
+			result = xmlhttp.responseText;
+		}
+		return result;
+	}
+	txt=loadFile("Rätsel_004.txt");
+	</script>
+</html>
