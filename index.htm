@@ -97,6 +97,9 @@
 			height: 5%;
 			background-color:red;
 		}
+		.error{
+			color: #FF0000;
+		}
 		
 	</style>
 	<body>
@@ -122,7 +125,7 @@
 				</table>
 			</div>
 			<div id="Bedienung">
-				<button class="button">
+				<button class="button" onClick="Check();">
 					Eingaben
 					überprüfen
 				</button>
@@ -162,15 +165,15 @@
 			}
 			document.getElementById(x.toString(16)+y.toString(16)).focus();
 		}
-		function key(event){
+		function updateText(Text){
 			Feld=document.activeElement;
-			x=Number("0x"+Feld.id[0]);
-			y=Number("0x"+Feld.id[1]);
-			console.log(event.code+" für Feld "+Feld.id+" ("+x+"|"+y+")");
-			//console.log(event);
+			Feld.classList.remove("error");
+			Feld.value=Text;
+		}
+		function key(event){
 			if (buchstaben.has(event.key.toLowerCase())){
 				c=event.key.toUpperCase();
-				Feld.value=c;
+				updateText(c);
 				move(Richtung);
 			} else if (event.key=="ArrowDown"){
 				move(1);
@@ -181,10 +184,9 @@
 			} else if (event.key=="ArrowRight"){
 				move(0);
 			}else if (event.key=="Backspace"){
-				Feld.value="";
+				updateText("");
 				move(Richtung,true);
-			}
-			
+			}			
 		}
 	function loadFile(filePath){
 		var result = null;
@@ -196,6 +198,25 @@
 		}
 		return result;
 	}
-	txt=loadFile("Rätsel_004.txt");
+	txt=loadFile("crosswords/Rätsel_004.txt");
+	lsg=txt.substring(16*16).replace(/[\n\r\t]/g,"");
+	lsglist=[];
+	for (var i=0;i<lsg.length;i+=2){
+		lsglist.push(lsg[i]+lsg[i+1]);
+	}
+	function Check(){
+		i=0
+		for (var y=0;y<16;y++){
+			for (var x=0;x<16;x++){
+				if (txt[i]!="#"){
+					Feld=document.getElementById(x.toString(16)+y.toString(16));
+					if (Feld.value!=txt[i]){
+						Feld.classList.add("error");
+					}
+				}
+				i++;
+			}
+		}
+	}
 	</script>
 </html>
