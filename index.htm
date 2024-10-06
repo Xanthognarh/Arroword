@@ -178,7 +178,7 @@
 		document.body.onpointerdown = mousedown;
 		document.body.onpointerup = function(event) {
 			isMouseDown = false;
-			//document.getElementsByTagName("body")[0].style.cursor = "auto";
+			document.documentElement.style.cursor = "auto";
 			document.body.onpointermove = null;
 			document.body.releasePointerCapture(event.pointerId);
 		};
