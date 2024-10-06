@@ -172,6 +172,56 @@
 	</body>
 	<script>
 		document.getElementById("Feld").addEventListener("keyup",key);
+		isMouseDown = false;
+		xstart=0;
+		ystart=0;
+		document.body.onpointerdown = mousedown;
+		document.body.onpointerup = function(event) {
+			isMouseDown = false;
+			//document.getElementsByTagName("body")[0].style.cursor = "auto";
+			document.body.onpointermove = null;
+			document.body.releasePointerCapture(event.pointerId);
+		};
+		document.body.onmousemove = mousedrag;
+		function mousedown(event){
+			xstart=event.clientX;
+			ystart=event.clientY;
+			document.body.onpointermove = mousedrag;
+			document.body.setPointerCapture(event.pointerId);
+			isMouseDown = true;
+		}
+		function mousedrag(event){
+			if(isMouseDown==false){
+				return;
+			}
+			dx=event.clientX-xstart;
+			dy=event.clientY-ystart;
+			var minmovement=10;
+			if (Math.abs(dx)<10 && Math.abs(dy)<10){
+				return;
+			}
+			if (Math.abs(dx)>Math.abs(dy)){
+				//Richtung 0 oder 2
+				if (dx>0){
+					Richtung=0;
+					document.documentElement.style.cursor = "e-resize";
+				}else{
+					Richtung=2;
+					document.documentElement.style.cursor = "w-resize";
+				}
+			}else{
+				//Richtung 1 oder 3
+				if (dy>0){
+					Richtung=1;
+					document.documentElement.style.cursor = "s-resize";
+				}else{
+					Richtung=3;
+					document.documentElement.style.cursor = "n-resize";
+				}
+			}
+		}
+		
+		
 		const buchstaben=new Set(["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]);
 		Richtung=0;//0: Links nach rechts; 1: Oben nach unten; 2: Rechts nach links; 3: Unten nach oben  // 0 = nach Rechts, dann im Uhrzeigersinn
 		posalt=[0,0];
