@@ -126,6 +126,11 @@
 		.noField{
 			pointer-events:none;
 		}
+		.info{
+			padding: 4%;
+			position: absolute;
+			bottom: 0;
+		}
 		
 	</style>
 	<body>
@@ -161,6 +166,7 @@
 				</a></button>
 				<button class="button nav" onClick="load('previous');">Vorheriges Rätsel</button>
 				<button class="button nav" onclick="load('next');">Nächstes Rätsel</button>
+				<div class="info">Bei gedrückter Maustaste in Wortrichtung fahren, um die Richtung zu ändern.</div>
 			</div>
 			<div id="Zielwort">
 				<table>
