@@ -175,29 +175,24 @@
 			</div>
 			<div id="Titel">Rätsel #000</div>
 		</div>
-	</body>
 	<script>
-		document.getElementById("buttoncheck").addEventListener("click",Check);
-		document.getElementById("buttonloadnext").addEventListener("click",function(){load('next')});
-		document.getElementById("buttonloadprev").addEventListener("click",function(){load('next')});
-		
 		document.getElementById("Feld").addEventListener("keyup",key);
 		isMouseDown = false;
 		xstart=0;
 		ystart=0;
-		document.body.onpointerdown = mousedown;
-		document.body.onpointerup = function(event) {
+		document.getElementById("Feld").onpointerdown = mousedown;
+		document.getElementById("Feld").onpointerup = function(event) {
 			isMouseDown = false;
 			document.documentElement.style.cursor = "auto";
-			document.body.onpointermove = null;
-			document.body.releasePointerCapture(event.pointerId);
+			document.getElementById("Feld").onpointermove = null;
+			document.getElementById("Feld").releasePointerCapture(event.pointerId);
 		};
-		document.body.onmousemove = mousedrag;
+		document.getElementById("Feld").onmousemove = mousedrag;
 		function mousedown(event){
 			xstart=event.clientX;
 			ystart=event.clientY;
-			document.body.onpointermove = mousedrag;
-			document.body.setPointerCapture(event.pointerId);
+			document.getElementById("Feld").onpointermove = mousedrag;
+			document.getElementById("Feld").setPointerCapture(event.pointerId);
 			isMouseDown = true;
 		}
 		function mousedrag(event){
@@ -368,4 +363,5 @@
 	}
 	load("previous");
 	</script>
+	</body>
 </html>
