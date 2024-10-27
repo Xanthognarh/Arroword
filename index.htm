@@ -156,7 +156,7 @@
 				</table>
 			</div>
 			<div id="Bedienung">
-				<button class="button" onClick="Check();">
+				<button class="button" id="buttoncheck" onClick="Check();">
 					Eingaben
 					überprüfen
 				</button>
@@ -164,8 +164,8 @@
 					Rätsel
 					herunterladen
 				</a></button>
-				<button class="button nav" onClick="load('previous');">Vorheriges Rätsel</button>
-				<button class="button nav" onclick="load('next');">Nächstes Rätsel</button>
+				<button class="button nav" id="buttonloadprev" onClick="load('previous');">Vorheriges Rätsel</button>
+				<button class="button nav" id="buttonloadnext" onclick="load('next');">Nächstes Rätsel</button>
 				<div class="info">Bei gedrückter Maustaste in Wortrichtung fahren, um die Richtung zu ändern.</div>
 			</div>
 			<div id="Zielwort">
@@ -177,6 +177,10 @@
 		</div>
 	</body>
 	<script>
+		document.getElementById("buttoncheck").addEventListener("click",Check);
+		document.getElementById("buttonloadnext").addEventListener("click",function(){load('next')});
+		document.getElementById("buttonloadprev").addEventListener("click",function(){load('next')});
+		
 		document.getElementById("Feld").addEventListener("keyup",key);
 		isMouseDown = false;
 		xstart=0;
